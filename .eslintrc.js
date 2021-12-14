@@ -4,17 +4,17 @@ module.exports = {
   root: true,
   // 추가적인 규칙들을 적용
   extends: [
-    "eslint:recommended",
-    "plugin:vue/essential",
-    "prettier",
-    "plugin:prettier/recommended",
+    'eslint:recommended',
+    'plugin:vue/essential',
+    'prettier',
+    'plugin:prettier/recommended',
   ],
   // 코드 정리 플러그인 추가
-  plugins: ["prettier"],
+  plugins: ['prettier'],
   // 사용자 편의 규칙 추가
   rules: {
-    "prettier/prettier": [
-      "off",
+    'prettier/prettier': [
+      'error',
       // 아래 규칙들은 개인 선호에 따라 prettier 문법 적용
       // https://prettier.io/docs/en/options.html
       {
@@ -22,23 +22,20 @@ module.exports = {
         semi: false,
         useTabs: true,
         tabWidth: 2,
-        trailingComma: "all",
+        trailingComma: 'all',
         printWidth: 80,
         bracketSpacing: true,
-        arrowParens: "avoid",
+        arrowParens: 'avoid',
       },
     ],
-    "no-console": process.env.NODE_ENV === "production" ? "error" : "off",
+    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
   },
-  "overrides": [
+  overrides: [
     {
-      "files": [
-        "**/*.spec.js",
-        "**/*.spec.jsx"
-      ],
-      "env": {
-        "jest": true
-      }
-    }
-  ]
-};
+      files: ['**/*.spec.js', '**/*.spec.jsx'],
+      env: {
+        jest: true,
+      },
+    },
+  ],
+}
