@@ -1,4 +1,6 @@
-<template><div>Not Found</div></template>
+<template>
+	<div>Page is not found</div>
+</template>
 
 <script>
 export default {}
