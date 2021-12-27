@@ -9,5 +9,6 @@
 	"arrowParens": "avoid",
 	"singleline": "never",
 	"multiline": "always",
-	"bracketSameLine": false
+	"bracketSameLine": false,
+	"endOfLine": "auto"
 }

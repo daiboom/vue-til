@@ -34,6 +34,7 @@ module.exports = {
 				singleline: 'never',
 				multiline: 'always',
 				bracketSameLine: false,
+				endOfLine: 'auto',
 			},
 		],
 
