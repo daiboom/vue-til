@@ -11,6 +11,9 @@
 				></PostListItem>
 			</ul>
 		</div>
+		<router-link class="create-button" to="/add">
+			<i class="ion-md-add"></i>
+		</router-link>
 	</div>
 </template>
 
@@ -33,9 +36,14 @@ export default {
 	methods: {
 		async fetchData() {
 			this.isLoading = true
-			const { data } = await fetchPosts()
-			this.isLoading = false
-			this.postItems = data.posts
+			try {
+				const { data } = await fetchPosts()
+				this.postItems = data.posts
+			} catch (error) {
+				console.error(error)
+			} finally {
+				this.isLoading = false
+			}
 		},
 	},
 	created() {
