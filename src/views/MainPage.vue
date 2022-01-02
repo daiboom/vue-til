@@ -8,10 +8,11 @@
 					v-for="postItem in postItems"
 					:key="postItem._id"
 					:postItem="postItem"
-				></PostListItem>
+					@refresh="fetchData"
+				/>
 			</ul>
 		</div>
-		<router-link class="create-button" to="/add">
+		<router-link to="/add" class="create-button">
 			<i class="ion-md-add"></i>
 		</router-link>
 	</div>
@@ -20,7 +21,7 @@
 <script>
 import PostListItem from '@/components/posts/PostListItem.vue'
 import LoadingSpinner from '@/components/common/LoadingSpinner.vue'
-import { fetchPosts } from '@/api/index'
+import { fetchPosts } from '@/api/posts'
 
 export default {
 	components: {
@@ -36,14 +37,9 @@ export default {
 	methods: {
 		async fetchData() {
 			this.isLoading = true
-			try {
-				const { data } = await fetchPosts()
-				this.postItems = data.posts
-			} catch (error) {
-				console.error(error)
-			} finally {
-				this.isLoading = false
-			}
+			const { data } = await fetchPosts()
+			this.isLoading = false
+			this.postItems = data.posts
 		},
 	},
 	created() {
