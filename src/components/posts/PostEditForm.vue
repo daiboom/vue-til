@@ -37,6 +37,11 @@ export default {
 			logMessage: '',
 		}
 	},
+	computed: {
+		isContentsValid() {
+			return this.contents.length <= 200
+		},
+	},
 	methods: {
 		async submitForm() {
 			try {
